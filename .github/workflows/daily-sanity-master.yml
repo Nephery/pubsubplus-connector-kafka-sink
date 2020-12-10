@@ -20,4 +20,4 @@ jobs:
       with:
         java-version: 1.8
     - name: Build and test with Gradle
-      run: ./gradlew clean integrationTest --tests com.solace.connector.kafka.connect.source.it.SinkConnectorIT
+      run: ./gradlew clean integrationTest --tests com.solace.connector.kafka.connect.sink.it.SinkConnectorIT
