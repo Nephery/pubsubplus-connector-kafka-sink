@@ -3,6 +3,8 @@
 name: daily-sanity-master
 
 on:
+  push:
+
   schedule:
   - cron: "0 2 * * *"
 
