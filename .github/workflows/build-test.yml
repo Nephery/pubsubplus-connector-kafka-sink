@@ -119,7 +119,7 @@ jobs:
       continue-on-error: true
       with:
         check_name: Unit Test Results
-        comment_mode: create new
+        comment_mode: ${{ github.actor != 'dependabot[bot]' && 'create new' || 'off' }}
         fail_on: nothing
         hide_comments: orphaned commits
         files: |
