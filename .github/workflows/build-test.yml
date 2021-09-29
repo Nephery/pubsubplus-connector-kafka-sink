@@ -116,11 +116,12 @@ jobs:
         rm -f ~/.gradle/caches/modules-2/gc.properties
 
     - name: Publish Unit Test Results
+      if: github.actor != 'dependabot[bot]' || !contains(github.ref, 'dependabot')
       uses: EnricoMi/publish-unit-test-result-action@v1
       continue-on-error: true
       with:
         check_name: Unit Test Results
-        comment_mode: ${{ github.actor != 'dependabot[bot]' && 'create new' || 'off' }}
+        comment_mode: create new
         fail_on: nothing
         hide_comments: orphaned commits
         files: |
