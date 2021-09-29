@@ -13,5 +13,11 @@ jobs:
     steps:
 
       - name: who am i
-        run: echo ${{ github.actor }}
+        run: |
+          echo ${{ github.actor }}
+          echo ${{ github.ref }}
+          echo ${{ github.actor != 'dependabot[bot]' }}
+          echo ${{ contains(github.ref, 'dependabot') }}
+          echo ${{ github.event.pull_request.head.repo.full_name }}
+          echo ${{ github.repository }}
 
