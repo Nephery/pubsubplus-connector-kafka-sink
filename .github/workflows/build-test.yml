@@ -70,7 +70,7 @@ jobs:
 
     - name: Publish artifacts
       # Security Measure: Do not publish artifacts from dependabot builds
-      if: github.event_name == 'push' && github.actor != 'dependabot[bot]'
+      if: github.event_name == 'push' && (github.actor != 'dependabot[bot]' || !contains(github.ref, 'dependabot'))
       run: |
         if [ ${{ github.ref }} == 'refs/heads/master' ] && [ ${{ github.repository_owner }} == 'SolaceProducts' ] ; then
           echo "Using master on SolaceProducts"
