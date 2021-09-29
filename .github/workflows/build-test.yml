@@ -116,7 +116,7 @@ jobs:
         rm -f ~/.gradle/caches/modules-2/gc.properties
 
     - name: Publish Unit Test Results
-      if: github.actor != 'dependabot[bot]' || !contains(github.ref, 'dependabot')
+      if: github.actor != 'dependabot[bot]' || (github.event_name == 'push' && !contains(github.ref, 'dependabot'))
       uses: EnricoMi/publish-unit-test-result-action@v1
       continue-on-error: true
       with:
