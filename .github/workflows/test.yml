@@ -1,0 +1,23 @@
+name: WHOAMI
+
+on:
+  pull_request:
+  push:
+  workflow_dispatch:
+
+jobs:
+
+  run-analysis:
+    name: info
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: who am i
+        run: |
+          echo ${{ github.actor }}
+          echo ${{ github.ref }}
+          echo ${{ github.actor != 'dependabot[bot]' }}
+          echo ${{ contains(github.ref, 'dependabot') }}
+          echo ${{ github.event.pull_request.head.repo.full_name }}
+          echo ${{ github.repository }}
+
